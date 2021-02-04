@@ -82,3 +82,5 @@ try:
     from .settings_local import *
 except ImportError:
     pass
+
+REQ_AB_TEST_DICT = {'original': 'landing.html', 'test': 'landing_alternate.html'}
