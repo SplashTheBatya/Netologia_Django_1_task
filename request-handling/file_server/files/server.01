@@ -11,7 +11,7 @@ CPU socket(s):         1
 NUMA node(s):          1
 Vendor ID:             GenuineIntel
 CPU family:            6
-Model:                 30
+Model:                 25
 Stepping:              5
 CPU MHz:               1199.000
 Virtualization:        VT-x
