@@ -37,28 +37,20 @@
                 </tr>
                 {% for year in years_data %}
                     <tr>
-                        <td>{{ year.Year }}</td>
-                        {% if year.Jan|type_filter < 0 %}
-                            <td style="background-color: darkgreen">{{ year.Jan }}</td>
-                        {% else %}
-                            <td>{{ year.Jan }}</td>
-                        {% endif %}
-                        <td>{{ year.Feb }}</td>
-                        <td>{{ year.Mar }}</td>
-                        <td>{{ year.Apr }}</td>
-                        <td>{{ year.May }}</td>
-                        <td>{{ year.Jun }}</td>
-                        {% if year.Jul|type_filter < 0 %}
-                            <td style="background-color: darkgreen">{{ year.Jul }}</td>
-                        {% else %}
-                            <td>{{ year.Jul }}</td>
-                        {% endif %}
-                        <td>{{ year.Aug }}</td>
-                        <td>{{ year.Sep }}</td>
-                        <td>{{ year.Oct }}</td>
-                        <td>{{ year.Nov }}</td>
-                        <td>{{ year.Dec }}</td>
-                        <td style="background-color: grey"> {{ year.Summary }}</td>
+                        {{ year.Year | safe }}
+                        {{ year.Jan | safe }}
+                        {{ year.Feb | safe }}
+                        {{ year.Mar | safe }}
+                        {{ year.Apr | safe }}
+                        {{ year.May | safe }}
+                        {{ year.Jun | safe }}
+                        {{ year.Jul | safe }}
+                        {{ year.Aug | safe }}
+                        {{ year.Sep | safe }}
+                        {{ year.Oct | safe }}
+                        {{ year.Nov | safe }}
+                        {{ year.Dec | safe }}
+                        <td style="background-color: grey"> {{ year.Summary }}
                     </tr>
                 {% endfor %}
             </table>
