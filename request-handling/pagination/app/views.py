@@ -32,9 +32,14 @@ def bus_stations(request):
     else:
         next_page_url = reverse('bus_stations') + '?' + parse.urlencode({'page': 1})
 
+    if page.has_previous() is True:
+        prev_page_url = reverse('bus_stations') + '?' + parse.urlencode({'page': page.previous_page_number()})
+    else:
+        prev_page_url = reverse('bus_stations') + '?' + parse.urlencode({'page': 1})
+
     return render(request, 'index.html', context={
         'bus_stations': data_list,
         'current_page': current_page,
-        'prev_page_url': None,
+        'prev_page_url': prev_page_url,
         'next_page_url': next_page_url,
     })

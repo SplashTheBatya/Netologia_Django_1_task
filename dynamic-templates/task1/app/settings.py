@@ -107,6 +107,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 SECRET_KEY = 'put your secret here'
+
 DEBUG = True
 
 try:

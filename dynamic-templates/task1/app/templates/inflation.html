@@ -1,6 +1,7 @@
+{% load filters %}
 <!DOCTYPE html>{% load static %}
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Инфляция в России</title>
     <!--Import Google Icon Font-->
@@ -10,19 +11,62 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  </head>
+</head>
 
-  <body>
-    {% block content %}
-      <div class="row">
+<body>
+{% block content %}
+    <div class="row">
         <h1 class="col s12">Инфляция в России</h1>
         <div class="col s12 m8">
-        
-        <!-- Ваша логика -->
+            <table>
+                <tr>
+                    <th>Год</th>
+                    <th>Янв</th>
+                    <th>Фев</th>
+                    <th>Мар</th>
+                    <th>Апр</th>
+                    <th>Май</th>
+                    <th>Июн</th>
+                    <th>Июл</th>
+                    <th>Авг</th>
+                    <th>Сен</th>
+                    <th>Окт</th>
+                    <th>Ноя</th>
+                    <th>Дек</th>
+                    <th>Суммарная</th>
+                </tr>
+                {% for year in years_data %}
+                    <tr>
+                        <td>{{ year.Year }}</td>
+                        {% if year.Jan|type_filter < 0 %}
+                            <td style="background-color: darkgreen">{{ year.Jan }}</td>
+                        {% else %}
+                            <td>{{ year.Jan }}</td>
+                        {% endif %}
+                        <td>{{ year.Feb }}</td>
+                        <td>{{ year.Mar }}</td>
+                        <td>{{ year.Apr }}</td>
+                        <td>{{ year.May }}</td>
+                        <td>{{ year.Jun }}</td>
+                        {% if year.Jul|type_filter < 0 %}
+                            <td style="background-color: darkgreen">{{ year.Jul }}</td>
+                        {% else %}
+                            <td>{{ year.Jul }}</td>
+                        {% endif %}
+                        <td>{{ year.Aug }}</td>
+                        <td>{{ year.Sep }}</td>
+                        <td>{{ year.Oct }}</td>
+                        <td>{{ year.Nov }}</td>
+                        <td>{{ year.Dec }}</td>
+                        <td style="background-color: grey"> {{ year.Summary }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <!-- Ваша логика -->
 
         </div>
-      </div>
-    {% endblock %}
+    </div>
+{% endblock %}
 
-  </body>
+</body>
 </html>
