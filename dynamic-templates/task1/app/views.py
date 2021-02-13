@@ -36,6 +36,7 @@ def inflation_view(request):
                 list_iter[key] = '<td style="background-color: #fe6f5e">' + list_iter[key]
             elif float(list_iter[key]) > 5:
                 list_iter[key] = '<td style="background-color: red">' + list_iter[key]
+            # И ещё запасной костыль :))
             else:
                 list_iter[key] = '<td>' + list_iter[key]
         # И наконец-то 1 строчка готова !!!
