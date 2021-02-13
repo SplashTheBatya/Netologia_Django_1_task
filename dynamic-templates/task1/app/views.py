@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 def inflation_view(request):
     template_name = 'inflation.html'
-    # чтение csv-файла и заполнение контекста
+    # чтение csv-файла
 
     csv.register_dialect('my_dialect', delimiter=';')
     with open('inflation_russia.csv', encoding='UTF-8') as csvfile:
@@ -16,10 +16,14 @@ def inflation_view(request):
                 reader[list_iter][dict_reader] = '-'
 
     data_list = []
+
+    # Прекрасный двойной цикл :D
     for list_iter in reader:
         for key in list_iter.keys():
+            # Костыль :)
             if key == 'Год':
                 list_iter[key] = '<td>' + list_iter[key]
+            # Ещё костыль ;)
             elif key == 'Суммарная':
                 pass
             elif list_iter[key] == '-':
@@ -34,6 +38,7 @@ def inflation_view(request):
                 list_iter[key] = '<td style="background-color: red">' + list_iter[key]
             else:
                 list_iter[key] = '<td>' + list_iter[key]
+        # И наконец-то 1 строчка готова !!!
         data_list.append({
             'Year': list_iter['Год'],
             'Jan': list_iter['Янв'],
@@ -50,6 +55,8 @@ def inflation_view(request):
             'Dec': list_iter['Дек'],
             'Summary': list_iter['Суммарная'],
         })
+
+    # Ура, солнце зашло, Джанго может отдохнуть
     context = {'years_data': data_list}
 
     return render(request, template_name,
