@@ -23,7 +23,7 @@ def file_list(request, date: datetime = None):
             ctime = datetime.datetime.fromtimestamp(stat_res.st_ctime).date()
             if ctime == date:
                 context_list.append({'name': files[file_iter],
-                                     'ctime': datetime.datetime.fromtimestamp(stat_res.st_ctime).date(),
+                                     'ctime': ctime,
                                      'mtime': datetime.datetime.fromtimestamp(stat_res.st_mtime).date()})
     return render(request, 'index.html', context={
         'files': context_list,
