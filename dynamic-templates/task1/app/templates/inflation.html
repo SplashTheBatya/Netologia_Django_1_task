@@ -37,20 +37,10 @@
                 </tr>
                 {% for year in years_data %}
                     <tr>
-                        {{ year.Year | safe }}
-                        {{ year.Jan | safe }}
-                        {{ year.Feb | safe }}
-                        {{ year.Mar | safe }}
-                        {{ year.Apr | safe }}
-                        {{ year.May | safe }}
-                        {{ year.Jun | safe }}
-                        {{ year.Jul | safe }}
-                        {{ year.Aug | safe }}
-                        {{ year.Sep | safe }}
-                        {{ year.Oct | safe }}
-                        {{ year.Nov | safe }}
-                        {{ year.Dec | safe }}
-                        <td style="background-color: grey"> {{ year.Summary }}
+                        {% for month in year|get_keys_filer|slice:":-1"%}
+                            <td style="background-color: {{ month|get_value:year|color_filter }}"> {{ month|get_value:year}}</td>
+                        {% endfor %}
+                        <td style="background-color: grey"> {{year.Суммарная}}</td>
                     </tr>
                 {% endfor %}
             </table>
