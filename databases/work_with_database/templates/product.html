@@ -5,7 +5,25 @@
 {% block content %}
     <div class="container">
         <div class="header">
-            <h1>Телефон</h1>
+
+            <p>
+            <h1>{{ Phone.name }}</h1>
+            <b>Стоимость: {{ Phone.price }}</b>
+            </p>
+
+            <picture>
+                <img src={{ Phone.image }}>
+            </picture>
+            <p>Дата выхода: {{ Phone.release_date }}</p>
+            {% if Phone.lte_exists == 1 %}
+                <p>Lte <label>
+                    <input type="checkbox" checked disabled>
+                </label></p>
+            {% elif Phone.lte_exists == 0 %}
+                <p>Lte <label>
+                    <input type="checkbox" disabled>
+                </label></p>
+            {% endif %}
         </div>
         <div class="content">
 
