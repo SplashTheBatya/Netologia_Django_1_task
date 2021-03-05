@@ -1,11 +1,12 @@
 from django.views.generic import ListView
 from django.shortcuts import render
 
-from articles.models import Article
+from articles.models import Article, ArticleThematics
 
 
 def articles_list(request):
     template = 'articles/news.html'
+    print(ArticleThematics.objects.select_related('Article'))
     context = {}
 
     # используйте этот параметр для упорядочивания результатов
