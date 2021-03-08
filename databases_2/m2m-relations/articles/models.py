@@ -16,7 +16,7 @@ class Article(models.Model):
     title = models.CharField(max_length=256, verbose_name='Название')
     text = models.TextField(verbose_name='Текст')
     published_at = models.DateTimeField(verbose_name='Дата публикации')
-    image = models.ImageField(null=True, blank=True, verbose_name='Изображение', )
+    image = models.ImageField(null=True, blank=True, verbose_name='Изображение')
     thematic_sections = models.ManyToManyField(Thematics, through='ArticleThematics')
 
     class Meta:
@@ -31,12 +31,10 @@ class ArticleThematics(models.Model):
     Article = models.ForeignKey(
         Article,
         on_delete=models.CASCADE,
-        related_name='article'
     )
-
     Thematics = models.ForeignKey(
         Thematics,
         on_delete=models.CASCADE,
-        related_name='thematics'
+        related_name='thematic'
     )
     main_thematic = models.BooleanField(default=False)
