@@ -1,0 +1,91 @@
+
+GET http://localhost:8000/project/
+
+###
+
+GET http://localhost:8000/project/6/
+
+###
+
+POST http://localhost:8000/project/
+
+{
+"name":"proj_1",
+"latitude":"25.5",
+"longitude": "55.5"
+}
+
+###
+
+POST http://localhost:8000/project/
+
+{
+"name":"proj_5",
+"latitude":"30.5",
+"longitude": "50.5"
+}
+
+###
+
+DELETE http://localhost:8000/project//
+
+###
+
+DELETE http://localhost:8000/project/2/
+
+###
+
+GET http://127.0.0.1:8000/measurement/
+
+###
+
+GET http://127.0.0.1:8000/measurement/5/
+
+###
+
+POST http://127.0.0.1:8000/measurement/
+
+{
+"value":"21",
+"project": 6
+
+}
+
+###
+
+DELETE http://127.0.0.1:8000/measurement/2/
+
+###
+
+PUT http://localhost:8000/project/4/
+
+{
+"name":"proj_5",
+"latitude":"35.5",
+"longitude": "65.5"
+}
+
+###
+
+PUT http://127.0.0.1:8000/measurement/3/
+
+{
+"value":"21",
+"project": 5
+}
+
+###
+
+PATCH http://127.0.0.1:8000/measurement/3/
+
+{
+"value": 45
+}
+
+###
+
+PATCH http://127.0.0.1:8000/project/5/
+
+{
+"name": "new_proj"
+}
