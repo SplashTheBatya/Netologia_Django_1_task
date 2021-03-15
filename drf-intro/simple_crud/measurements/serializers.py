@@ -6,7 +6,6 @@ from measurements.models import *
 class ProjectViewSerializer(serializers.ModelSerializer):
     name = serializers.CharField(required=True)
 
-
     class Meta:
         model = Project
         fields = '__all__'
@@ -14,6 +13,7 @@ class ProjectViewSerializer(serializers.ModelSerializer):
 
 class MeasurementViewSerializer(serializers.ModelSerializer):
     value = serializers.CharField(required=True)
+    screen = serializers.ImageField(required=False)
 
     class Meta:
         model = Measurement

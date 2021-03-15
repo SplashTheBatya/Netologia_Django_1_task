@@ -84,7 +84,7 @@ PATCH http://127.0.0.1:8000/measurement/3/
 
 ###
 
-PATCH http://127.0.0.1:8000/project/5/
+PATCH http://127.0.0.1:8000/project/6/
 
 {
 "name": "new_proj"
