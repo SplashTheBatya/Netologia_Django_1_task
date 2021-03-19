@@ -7,6 +7,5 @@ class AdvertisementFilter(filters.FilterSet):
     """Фильтры для объявлений."""
 
     # TODO: задайте требуемые фильтры
-
-    class Meta:
-        model = Advertisement
+    created_at = filters.DateFromToRangeFilter()
+    creator = filters.NumberFilter(lookup_expr='exact')
